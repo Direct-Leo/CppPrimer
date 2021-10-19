@@ -1,8 +1,7 @@
 /* Created by vleo on 21/10/18
  * Copyright(c)2021 vleo. All rights reserved.
  * 
- * find a string in a forward_list to insert a string after it,
- * if not,insert a string to the end
+ * delete even numbers from a vector,delete odd numbers from a list
  */ 
 
 #include <iostream>
