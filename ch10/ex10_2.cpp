@@ -2,7 +2,7 @@
  * Copyright(c)2021 vleo. All rights reserved.
  * 
  * calculate a given value's number of occurrences 
- * in a vector
+ * in a list
  */ 
 
 #include <iostream>
@@ -20,20 +20,20 @@ using std::list;
 using std::deque;
 using std::forward_list;
 
-vector<int> v;
+list<string> lst;
 
 
 int main()
 {
     int count = 0;
-    int temp,val;
+    string temp,word;
 
     while (cin >> temp)
     {
-        v.push_back(temp);
+        lst.push_back(temp);
     }
-    cin >> val;
-    count = std::count(v.begin(),v.end(),val);
+    cin >> word;
+    count = std::count(lst.begin(),lst.end(),word);
 
     cout << count << endl;
     return 0;
