@@ -1,8 +1,8 @@
 /* Created by vleo on 21/10/19
  * Copyright(c)2021 vleo. All rights reserved.
  * 
- * calculate a given value's number of occurrences 
- * in a list
+ * use accumulate method to calculate 
+ * the sum of a vector<int>'s element
  */ 
 
 #include <iostream>
@@ -12,6 +12,7 @@
 #include <deque>
 #include <forward_list>
 #include <algorithm>
+#include <numeric>
 
 using std::cin; using std::cout; using std::endl;
 using std::string ;
@@ -20,21 +21,14 @@ using std::list;
 using std::deque;
 using std::forward_list;
 
-list<string> lst;
+vector<int> v{45,56,58,78,79,78,77,77,77,76,77,77,76};
 
 
 int main()
 {
-    int count = 0;
-    string temp,word;
+    int sum = std::accumulate(v.cbegin(),v.cend(),0);
 
-    while (cin >> temp)
-    {
-        lst.push_back(temp);
-    }
-    cin >> word;
-    count = std::count(lst.begin(),lst.end(),word);
+    cout << sum << endl; //sum is 931
 
-    cout << count << endl;
     return 0;
 }
