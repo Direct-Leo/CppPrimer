@@ -5,3 +5,15 @@
 ## [Exercise 10.2](https://github.com/Direct-Leo/CppPrimer/blob/main/ch10/ex10_2.cpp)
 
 ## [Exercise 10.3](https://github.com/Direct-Leo/CppPrimer/blob/main/ch10/ex10_3.cpp)
+
+## Exercise 10.14
+
+> <font size=4>Write a lambda that takes two ints and returns their sum.</font>
+
+```c++
+//version1:
+[](int a,int b) ->return int {a+b};
+//version2:
+auto sum = [](int lhs,int rhs){return lhs + rhs; };
+```
+
