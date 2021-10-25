@@ -1,7 +1,7 @@
-/* Created by vleo on 21/10/22
+/* Created by vleo on 21/10/20
  * Copyright(c)2021 vleo. All rights reserved.
  * 
- * ex9_43
+ * ex10_29
  * replace find_if with partition to rewrite biggies
  */ 
 
@@ -11,17 +11,13 @@ using std::string;
 
 void Replace(string &s, const string &oldval, const string &newval)
 {
-    for(auto beg = s.begin(); std::distance(beg, s.end()) >= 
-                              std::distance(oldval.begin(), oldval.end());)
+    for(string::size_type i = 0; i != s.size(); ++i)
     {
-        if(string{beg, beg + oldval.size()} == oldval)
+        if(s.substr(i,oldval.size()) == oldval)
         {
-            beg = s.erase(beg, beg + oldval.size());
-            beg = s.insert(beg, newval.cbegin(), newval.cend());
-            std::advance(beg, newval.size());
+            s.replace(i, oldval.size(), newval);
+            i += newval.size();
         }
-        else
-            ++beg;
     }
 }
 
