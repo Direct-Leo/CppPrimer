@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Chapter 13. Copy Control
 
 ## Exercise 13.53
