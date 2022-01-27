@@ -5,30 +5,53 @@
  * @remark Quote class 
  *******************************************************/
 
-#ifndef CP5_EX15_15_DISC_QUOTE_H_
-#define CP5_EX15_15_DISC_QUOTE_H_
+#ifndef CP5_EX15_20_BASE_H_
+#define CP5_EX15_20_BASE_H_
 
-#include "ex15_03.h"
-#include <string>
+namespace EX20{
 
-
-namespace EX15{
-
-    using std::string;
-
-class Disc_quote : public EX03::Quote {
-public:
-    Disc_quote() = default ;
-    Disc_quote(const string& b, double p, size_t q, double d) : EX03::Quote(b, p), quantity(q), discount(d) {}
-    virtual double net_price(size_t) const = 0;
-
+class Base{
 protected:
-    size_t quantity = 0;
-    double discount = 0.0;
+    int prot_mem;
+private:
+    char priv_mem;
+
 };
 
+class Pub_Derv : public Base{
+    void memfcn(Base& b) { b = *this; }
+    int f() { return prot_mem; }
+};
 
+class Priv_Derv : private Base{
+    void memfcn(Base& b) { b = *this; }
+    int f1() const { return prot_mem; }
+};
+
+class Prot_Derv : protected Base {
+    void memfcn(Base& b) { b = *this; }
+    int f2() { return prot_mem; } 
+
+};
+
+class Derived_from_Public : public Pub_Derv {
+    void memfcn(Base& b) { b = *this; }
+    int use_base() { return prot_mem; }
+
+};
+
+class Derived_from_Private : public Priv_Derv{
+    //void memfcn(Base& b) { b = *this; }
+    //int use_base() { return prot_mem; }
+} ;
+
+class Derived_from_Protected : public Prot_Derv{
+    void memfcn(Base& b) { b = *this; }
+
+};
 
 }
 
-#endif // CP5_EX15_15_DISC_QUOTE_H_
+
+
+#endif
